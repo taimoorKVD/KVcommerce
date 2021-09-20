@@ -27,3 +27,11 @@ mix.js([
     'resources/dist/js/custom.min.js',
     'resources/dist/js/ecom-dashboard.js',
 ], 'public/js/admin.js');
+
+mix.styles([
+    'resources/theme/css/styles.css',
+], 'public/css/website.css');
+
+mix.js([
+    'resources/theme/js/scripts.js',
+], 'public/js/website.js');

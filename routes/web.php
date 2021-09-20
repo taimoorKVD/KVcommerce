@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::group( ['middleware' => ['auth'] ], function() {
-        
+
         // *** DASHBOARD ROUTES***
         Route::resource('/dashboard', Admin\DashboardController::class);
 
@@ -19,3 +19,4 @@ Route::prefix('admin')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/website.php';

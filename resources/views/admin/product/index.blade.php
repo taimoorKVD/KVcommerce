@@ -1,7 +1,7 @@
 @extends('admin.layouts.adminpanel')
 
 @section('content')
-    
+
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
             <div class="card">
@@ -34,7 +34,7 @@
                                             <td>
                                                 <a href="{{ route('products.edit', $product) }}" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
                                                     <i class="ti-marker-alt"></i>
-                                                </a> 
+                                                </a>
                                                 <a href="javascript:void(0)" class="text-inverse delete-product" title="" data-toggle="tooltip" data-original-title="Delete" data-id="{{ $product->id }}">
                                                     <i class="ti-trash"></i>
                                                 </a>
@@ -50,8 +50,8 @@
                         </table>
                     </div>
                 </div>
-                <div class="card-footer">
-
+                <div class="card-footer d-flex justify-content-end">
+                    {{ $products->links("pagination::bootstrap-4") }}
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 position: 'top-right',
                 loaderBg:'#ff6849',
                 icon: 'success',
-                hideAfter: 3000, 
+                hideAfter: 3000,
                 stack: 6
             });
         @endif
@@ -97,7 +97,7 @@
                                     position: 'top-right',
                                     loaderBg:'#ff6849',
                                     icon: 'success',
-                                    hideAfter: 3000, 
+                                    hideAfter: 3000,
                                     stack: 6
                                 });
                             }
@@ -106,5 +106,5 @@
                 }
             })
         });
-    </script>    
+    </script>
 @endpush
