@@ -7,10 +7,10 @@
 
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger alert-rounded"> 
+                    <div class="alert alert-danger alert-rounded">
                         {{ $error }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> 
-                            <span aria-hidden="true">×</span> 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
                         </button>
                     </div>
                 @endforeach
@@ -19,7 +19,7 @@
 
             <div class="card card-body">
                 <h4 class="card-title">Create new product</h4>
-                <form method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6 col-xs-6">
@@ -95,5 +95,5 @@
             }
         })
     });
-    </script>    
+    </script>
 @endpush

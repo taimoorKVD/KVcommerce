@@ -38,19 +38,19 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a href="{{ route('dashboard.index') }}">
+                            <a href="{{ route('admin.dashboard.index') }}">
                                 <i class="icon-speedometer"></i>
                                 Dashboard
                             </a>
                         </li>
-                        <li> 
+                        <li>
                             <a class="waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="icon-list"></i>
                                 Product
                             </a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ route('products.create') }}">Add product</a></li>
-                                <li><a href="{{ route('products.index') }}">Product Listing</a></li>
+                                <li><a href="{{ route('admin.products.create') }}">Add product</a></li>
+                                <li><a href="{{ route('admin.products.index') }}">Product Listing</a></li>
                             </ul>
                         </li>
                     </ul>

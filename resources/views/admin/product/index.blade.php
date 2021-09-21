@@ -32,7 +32,7 @@
                                             </td>
                                             <td>{{ $product->created_at->diffForHumans() }}</td>
                                             <td>
-                                                <a href="{{ route('products.edit', $product) }}" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
+                                                <a href="{{ route('admin.products.edit', $product) }}" class="text-inverse p-r-10" data-toggle="tooltip" title="" data-original-title="Edit">
                                                     <i class="ti-marker-alt"></i>
                                                 </a>
                                                 <a href="javascript:void(0)" class="text-inverse delete-product" title="" data-toggle="tooltip" data-original-title="Delete" data-id="{{ $product->id }}">

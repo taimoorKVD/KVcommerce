@@ -1,0 +1,111 @@
+<x-web-head></x-web-head>
+
+<body>
+
+<x-web-cart-basket></x-web-cart-basket>
+
+<x-web-page-header></x-web-page-header>
+
+<div class="container-fluid">
+    <div class="row medium-padding120 bg-border-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="order">
+                        <h2 class="h1 order-title text-center">Your Order</h2>
+                        <form action="#" method="post" class="cart-main">
+                            <table class="shop_table cart">
+                                <thead class="cart-product-wrap-title-main">
+                                <tr>
+                                    <th class="product-thumbnail">Product</th>
+                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-subtotal">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach(Cart::content() as $cart_checkout)
+                                    <tr class="cart_item">
+                                        <td class="product-thumbnail">
+                                            <div class="cart-product__item">
+                                                <div class="cart-product-content">
+                                                    <h5 class="cart-product-title">{{ Str::limit($cart_checkout->name, 15) }}</h5>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="product-quantity">
+                                            <div class="quantity">
+                                                x {{ $cart_checkout->qty }}
+                                            </div>
+                                        </td>
+                                        <td class="product-subtotal">
+                                            <h5 class="total amount">${{ number_format($cart_checkout->price) }}</h5>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <tr class="cart_item subtotal">
+                                    <td class="product-thumbnail">
+                                        <div class="cart-product-content">
+                                            <h5 class="cart-product-title"> Subtotal:</h5>
+                                        </div>
+                                    </td>
+                                    <td class="product-quantity">
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <h5 class="total amount">${{ number_format(Cart::subtotal()) }}</h5>
+                                    </td>
+                                </tr>
+
+                                <tr class="cart_item total">
+                                    <td class="product-thumbnail">
+                                        <div class="cart-product-content">
+                                            <h5 class="cart-product-title">Total:</h5>
+                                        </div>
+                                    </td>
+                                    <td class="product-quantity">
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <h5 class="total amount">${{ number_format(Cart::total()) }}</h5>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="cheque">
+                                <div class="logos">
+                                    <a href="#" class="logos-item">
+                                        <img src="{{ env('RESOURCE_URL') }}theme/image/visa.png" alt="Visa">
+                                    </a>
+                                    <a href="#" class="logos-item">
+                                        <img src="{{ env('RESOURCE_URL') }}theme/image/mastercard.png" alt="MasterCard">
+                                    </a>
+                                    <a href="#" class="logos-item">
+                                        <img src="{{ env('RESOURCE_URL') }}theme/image/discover.png" alt="DISCOVER">
+                                    </a>
+                                    <a href="#" class="logos-item">
+                                        <img src="{{ env('RESOURCE_URL') }}theme/image/amex.png" alt="Amex">
+                                    </a>
+                                    <span style="float: right;">
+								        <form action="{{ route('website.checkout.store') }}" method="POST">
+									        @csrf
+                                            <script
+                                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                data-key="pk_test_51JVkKgBmvJxZcy56PZwTvTOxk1WfkNFjvG4ZRty7I99VQgQ1vJr48EuL7r7jOHQYHvjduojEum2qOdgHn9rLZB1h00P0IX4a8h"
+                                                data-amount="{{ Cart::total() * 100 }}"
+                                                data-name="{{ config('app.name') }}"
+                                                data-description="Pay your bill easily."
+                                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                                data-locale="auto"
+                                                data-zip-code="true">
+									        </script>
+								        </form>
+							        </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<x-web-footer></x-web-footer>

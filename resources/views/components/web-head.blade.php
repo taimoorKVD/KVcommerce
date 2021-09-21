@@ -19,4 +19,5 @@
     <link rel="stylesheet" type="text/css" href="{{ env('RESOURCE_URL') }}theme/css/primary-menu.css">
     <link rel="stylesheet" type="text/css" href="{{ env('RESOURCE_URL') }}theme/css/magnific-popup.css">
     <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 </head>

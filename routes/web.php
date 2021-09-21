@@ -9,12 +9,13 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
     Route::group( ['middleware' => ['auth'] ], function() {
+        Route::name('admin.')->group(function () {
+            // *** DASHBOARD ROUTES***
+            Route::resource('/dashboard', Admin\DashboardController::class);
 
-        // *** DASHBOARD ROUTES***
-        Route::resource('/dashboard', Admin\DashboardController::class);
-
-        // *** PRODUCTS ROUTES***
-        Route::resource('/products', Admin\ProductController::class);
+            // *** PRODUCTS ROUTES***
+            Route::resource('/products', Admin\ProductController::class);
+        });
     });
 });
 

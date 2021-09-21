@@ -23,6 +23,13 @@
 <script src="{{ env('RESOURCE_URL') }}theme/js/velocity.min.js"></script>
 <script src="{{ env('RESOURCE_URL') }}theme/js/ScrollMagic.min.js"></script>
 <script src="{{ env('RESOURCE_URL') }}theme/js/animation.velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    @if(Session::has('success'))
+        toastr.success('{{ Session::get('success') }}');
+    @endif
+</script>
 
 </body>
 </html>
